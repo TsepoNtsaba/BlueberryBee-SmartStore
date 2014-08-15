@@ -1,27 +1,104 @@
-<div class="content">
-    <h1>Index</h1>
+	<div id="headerwrap">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<h1>Smart Store Online Invenotry Management System</h1>
+					<form class="form-inline" role="form">
+					  <div class="form-group">
+					    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter your email address">
+					  </div>
+					  <button type="submit" class="btn btn-warning btn-lg">Invite Me!</button>
+					</form>					
+				</div><!-- /col-lg-6 -->
+				<div class="col-lg-6">
+					<img class="img-responsive" src="<?php echo URL; ?>public/img/ipad-hand.png" alt="">
+				</div><!-- /col-lg-6 -->
+				
+			</div><!-- /row -->
+		</div><!-- /container -->
+	</div><!-- /headerwrap -->
+	
+	
+	<div class="container">
+		<div class="row mt centered">
+			<div class="col-lg-6 col-lg-offset-3">
+				<h1>Be Smart<br/>.</h1>
+				<h3>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</h3>
+			</div>
+		</div><!-- /row -->
+		
+		<div class="row mt centered">
+			<div class="col-lg-4">
+				<img src="<?php echo URL; ?>public/img/ser01.png" width="180" alt="">
+				<h4>Stock Intake</h4>
+				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
+			</div><!--/col-lg-4 -->
 
-    <!-- echo out the system feedback (error and success messages) -->
-    <?php $this->renderFeedbackMessages(); ?>
+			<div class="col-lg-4">
+				<img src="<?php echo URL; ?>public/img/ser02.png" width="180" alt="">
+				<h4>Profit History</h4>
+				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
 
-    <p>
-        This box (everything between header and footer) is the content of views/index/index.php,
-        so it's the index/index view.
-        <br/>
-        It's rendered by the index-method within the index-controller (in controllers/index.php).
-    </p>
-    <h3>General information on this little framework</h3>
-    <p>
-        "C'mon! Framework #1000 ? Why do we need this ?" Indeed, there are a lot of good
-        (and a lot of bad, too) PHP frameworks on the web. But most of them have something in common:
-        They don't have a proper login system. And even if they have, then it's using outdated
-        password hashing/salting technologies, it's not future-proof, don't provide email verification,
-        password reset etc.
-        <br/><br/>
-        This framework tries to
-        <span style='font-weight: bold;'>focus on a proper, secure and up-to-date login system</span>,
-        combined with an easy-to-use, easy-to-understand and highly usable framework structure.
-        So, if you don't like the framework itself, feel free to merge the login-related actions,
-        models and views into the framework of your choice.
-    </p>
-</div>
+			</div><!--/col-lg-4 -->
+
+			<div class="col-lg-4">
+				<img src="<?php echo URL; ?>public/img/ser03.png" width="180" alt="">
+				<h4>Data analysis</h4>
+				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
+
+			</div><!--/col-lg-4 -->
+		</div><!-- /row -->
+	</div><!-- /container -->
+	
+	<div class="container">
+		<hr>
+		<div class="row centered">
+			<div class="col-lg-6 col-lg-offset-3">
+				<form class="form-inline" role="form">
+				  <div class="form-group">
+				    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter your email address">
+				  </div>
+				  <button type="submit" class="btn btn-warning btn-lg">Invite Me!</button>
+				</form>					
+			</div>
+			<div class="col-lg-3"></div>
+		</div><!-- /row -->
+		<hr>
+	</div><!-- /container -->
+	
+	<div class="container">
+		<div class="row mt centered">
+			<div class="col-lg-6 col-lg-offset-3">
+				<h1>Smart Store is for Everyone.</h1>
+				<h3>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</h3>
+			</div>
+		</div><!-- /row -->
+	
+		<! -- CAROUSEL -->
+		<div class="row mt centered">
+			<div class="col-lg-6 col-lg-offset-3">
+				<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+				  <!-- Indicators -->
+				  <ol class="carousel-indicators">
+				    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+				    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+				    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+				  </ol>
+				
+				  <!-- Wrapper for slides -->
+				  <div class="carousel-inner">
+				    <div class="item active">
+				      <img src="<?php echo URL; ?>public/img/p01.png" alt="">
+				    </div>
+				    <div class="item">
+				      <img src="<?php echo URL; ?>public/img/p02.png" alt="">
+				    </div>
+				    <div class="item">
+				      <img src="<?php echo URL; ?>public/img/p03.png" alt="">
+				    </div>
+				  </div>
+				</div>			
+			</div><!-- /col-lg-8 -->
+		</div><!-- /row -->
+	</div><! --/container -->
+	
