@@ -1,6 +1,6 @@
 <?php
 
-/**
+/** /////////////////////////////////////////////////////////////////////
  * A simple, clean and secure PHP Login Script embedded into a small framework.
  * Also available in other versions: one-file, minimal, advanced. See php-login.net for more info.
  *
