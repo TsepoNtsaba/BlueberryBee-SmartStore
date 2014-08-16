@@ -92,7 +92,7 @@ define('COOKIE_DOMAIN', '.localhost');
  */
 define('DB_TYPE', 'mysql');
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'login');
+define('DB_NAME', 'spaza');
 define('DB_USER', 'root');
 define('DB_PASS', '');
 
@@ -155,9 +155,9 @@ define("EMAIL_SMTP_HOST", 'smtp.gmail.com');
 // leave this true until your SMTP can be used without login
 define("EMAIL_SMTP_AUTH", true);
 // SMTP provider username
-define("EMAIL_SMTP_USERNAME", 'marabele.ptyltd@gmail.com');
+define("EMAIL_SMTP_USERNAME", 'u11210754@tuks.co.za');
 // SMTP provider password
-define("EMAIL_SMTP_PASSWORD", 'NtsabaKwasi');
+define("EMAIL_SMTP_PASSWORD", 'Tharollo5');
 // SMTP provider port
 define("EMAIL_SMTP_PORT", 587);
 // SMTP encryption, usually SMTP providers use "tls" or "ssl", for details see the PHPMailer manual

@@ -425,6 +425,16 @@ class LoginModel
             $_SESSION["feedback_negative"][] = FEEDBACK_CAPTCHA_WRONG;
         } elseif (empty($_POST['user_name'])) {
             $_SESSION["feedback_negative"][] = FEEDBACK_USERNAME_FIELD_EMPTY;
+        } elseif (empty($_POST['enterprise_name'])) {
+            $_SESSION["feedback_negative"][] = "Enterprise name field cannot be empty";
+        } elseif (empty($_POST['enterprise_address'])) {
+            $_SESSION["feedback_negative"][] = "Enterprise address field cannot be empty";
+        } elseif (empty($_POST['enterprise_zip'])) {
+            $_SESSION["feedback_negative"][] = "Enterprise zip code cannot be empty";
+        } elseif (empty($_POST['enterprise_phone'])) {
+            $_SESSION["feedback_negative"][] = "Enterprise phone field cannot be empty";
+        } elseif (empty($_POST['user_name'])) {
+            $_SESSION["feedback_negative"][] = FEEDBACK_USERNAME_FIELD_EMPTY;
         } elseif (empty($_POST['user_password_new']) OR empty($_POST['user_password_repeat'])) {
             $_SESSION["feedback_negative"][] = FEEDBACK_PASSWORD_FIELD_EMPTY;
         } elseif ($_POST['user_password_new'] !== $_POST['user_password_repeat']) {
@@ -455,6 +465,12 @@ class LoginModel
             // clean the input
             $user_name = strip_tags($_POST['user_name']);
             $user_email = strip_tags($_POST['user_email']);
+	    
+	    $enterprise_name = strip_tags($_POST['enterprise_name']);
+	    $enterprise_address = strip_tags($_POST['enterprise_address']);
+	    $enterprise_city = strip_tags($_POST['enterprise_city']);
+	    $enterprise_zip = strip_tags($_POST['enterprise_zip']);
+	    $enterprise_phone = strip_tags($_POST['enterprise_phone']);
 
             // crypt the user's password with the PHP 5.5's password_hash() function, results in a 60 character
             // hash string. the PASSWORD_DEFAULT constant is defined by the PHP 5.5, or if you are using PHP 5.3/5.4,
@@ -511,7 +527,23 @@ class LoginModel
             }
             $result_user_row = $query->fetch();
             $user_id = $result_user_row->user_id;
-
+	
+		$sql = "INSERT INTO store_details (store_user, store_name, store_address, store_city, store_zip, store_phone, store_email)
+			VALUES (:store_user, :store_name, :store_address, :store_city, :store_zip, :store_phone, :store_email)";
+		$query = $this->db->prepare($sql);
+		$query->execute(array(':store_user' => $user_id,
+				':store_name' => $enterprise_name,
+				':store_address' => $enterprise_address,
+				':store_city' => $enterprise_city,
+				':store_zip' => $enterprise_zip,
+				':store_phone' => $enterprise_phone,
+				':store_email' => $user_email));
+		$count =  $query->rowCount();
+		if ($count != 1) {
+			$_SESSION["feedback_negative"][] = FEEDBACK_ACCOUNT_CREATION_FAILED;
+			return false;
+		}
+		
             // send verification email, if verification email sending failed: instantly delete the user
             if ($this->sendVerificationEmail($user_id, $user_email, $user_activation_hash)) {
                 $_SESSION["feedback_positive"][] = FEEDBACK_ACCOUNT_SUCCESSFULLY_CREATED;

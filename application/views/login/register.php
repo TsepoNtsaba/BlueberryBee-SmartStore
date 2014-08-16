@@ -1,96 +1,94 @@
-<div class="content">
-
-    <!-- echo out the system feedback (error and success messages) -->
-    <?php $this->renderFeedbackMessages(); ?>
-
-    <div class="register-default-box">
-        <h1>Register</h1>
-        <!-- register form -->
-        <form method="post" action="<?php echo URL; ?>login/register_action" name="registerform">
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>SmartStore Login Form</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>public/css/bootstrap/bootstrap-responsive.css" />
+		<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>public/css/bootstrap/bootstrap.min.css" />
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link rel="stylesheet" type="text/css" href="<?php echo URL; ?>public/css/bootstrap/styles.css" />
+	</head>
+	<body>
+		<!-- echo out the system feedback (error and success messages) -->
+		<?php $this->renderFeedbackMessages(); ?>
 	
-	<!-- First Name -->
-            <label for="login_input_fname">
-                First Name: 
-                <span style="display: block; font-size: 14px; color: #999;"></span>
-            </label>
-            <input id="login_input_fname" class="login_input" type="text" name="f_name" required />
-	
-	<!-- Last Name -->
-            <label for="login_input_lname">
-                Last Name: 
-                <span style="display: block; font-size: 14px; color: #999;"></span>
-            </label>
-            <input id="login_input_lname" class="login_input" type="text" name="l_name" required />
-	
-	<!-- Business Name -->
-            <label for="login_input_bname">
-                Business Name: 
-                <span style="display: block; font-size: 14px; color: #999;"></span>
-            </label>
-            <input id="login_input_bname" class="login_input" type="text" name="b_name" required />
-	    
-	    <!-- Business Location -->
-            <label for="login_input_blocation">
-                Business Location: 
-                <span style="display: block; font-size: 14px; color: #999;"></span>
-            </label>
-            <input id="login_input_blocation" class="login_input" type="text" name="b_location" required />
-	
-            <!-- the user name input field uses a HTML5 pattern check -->
-            <label for="login_input_username">
-                Username
-                <span style="display: block; font-size: 14px; color: #999;">(only letters and numbers, 2 to 64 characters)</span>
-            </label>
-            <input id="login_input_username" class="login_input" type="text" pattern="[a-zA-Z0-9]{2,64}" name="user_name" required />
-            <!-- the email input field uses a HTML5 email type check -->
-            <label for="login_input_email">
-                User's email
-                <span style="display: block; font-size: 14px; color: #999;">
-                    (please provide a <span style="text-decoration: underline; color: mediumvioletred;">real email address</span>,
-                    you'll get a verification mail with an activation link)
-                </span>
-            </label>
-            <input id="login_input_email" class="login_input" type="email" name="user_email" required />
-            <label for="login_input_password_new">
-                Password (min. 6 characters!
-                <span class="login-form-password-pattern-reminder">
-                    Please note: using a long sentence as a password is much much safer then something like "!c00lPa$$w0rd").
-                    Have a look on
-                    <a href="http://security.stackexchange.com/questions/6095/xkcd-936-short-complex-password-or-long-dictionary-passphrase">
-                        this interesting security.stackoverflow.com thread
-                    </a>.
-                </span>
-            </label>
-            <input id="login_input_password_new" class="login_input" type="password" name="user_password_new" pattern=".{6,}" required autocomplete="off" />
-            <label for="login_input_password_repeat">Repeat password</label>
-            <input id="login_input_password_repeat" class="login_input" type="password" name="user_password_repeat" pattern=".{6,}" required autocomplete="off" />
-            <!-- show the captcha by calling the login/showCaptcha-method in the src attribute of the img tag -->
-            <!-- to avoid weird with-slash-without-slash issues: simply always use the URL constant here -->
-            <img id="captcha" src="<?php echo URL; ?>login/showCaptcha" />
-            <span style="display: block; font-size: 11px; color: #999; margin-bottom: 10px">
-                <!-- quick & dirty captcha reloader -->
-                <a href="#" onclick="document.getElementById('captcha').src = '<?php echo URL; ?>login/showCaptcha?' + Math.random(); return false">[ Reload Captcha ]</a>
-            </span>
-            <label>
-                Please enter these characters
-                <span style="display: block; font-size: 11px; color: #999;">
-                    Please note: This captcha will be generated when the img tag requests the captcha-generation
-                    (and a real image) from YOURURL/login/showcaptcha. As this is a client-side triggered request, the
-                    $_SESSION["captcha"] dump in the footer will not show the captcha characters. The captcha generation
-                    happens AFTER the rendering of the footer.
-                </span>
-            </label>
-            <input type="text" name="captcha" required />
-            <input type="submit"  name="register" value="Register" />
-
-        </form>
-    </div>
-
-    <?php if (FACEBOOK_LOGIN == true) { ?>
-        <div class="register-facebook-box">
-            <h1>or</h1>
-            <a href="<?php echo $this->facebook_register_url; ?>" class="facebook-login-button">Register with Facebook</a>
-        </div>
-    <?php } ?>
-
-</div>
+		<!--login modal-->
+		<div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						<h1 class="text-center">Register</h1>
+					</div>
+					<div class="modal-body">
+						<form class="form col-md-12 center-block" action="<?php echo URL; ?>login/register_action" name="registerform" method="post">
+							<div class="form-group">
+								<input id="login_input_username" type="text" name="user_name" class="form-control input-lg login_input" placeholder="Username (only letters and numbers, 2 to 64 characters)" pattern="[a-zA-Z0-9]{2,64}" required />
+							</div>
+							<div class="form-group">
+								<input id="login_input_email" type="email" name="user_email" class="form-control input-lg login_input" placeholder="Email" required />
+							</div>
+							<div class="form-group">
+								<input id="input_enterprise_name" type="text" name="enterprise_name" class="form-control input-lg login_input" placeholder="Enterprise Name" required />
+							</div>
+							<div class="form-group">
+								<input id="input_enterprise_address" type="text" name="enterprise_address" class="form-control input-lg login_input" placeholder="Address" required />
+							</div>
+							<div class="form-group">
+								<input id="input_enterprise_city" type="text" name="enterprise_city" class="form-control input-lg login_input" placeholder="City" required />
+							</div>
+							<div class="form-group">
+								<input id="input_enterprise_zip" type="text" name="enterprise_zip" class="form-control input-lg login_input" placeholder="Zip Code" required />
+							</div>
+							<div class="form-group">
+								<input id="input_enterprise_phone" type="text" name="enterprise_phone" class="form-control input-lg login_input" placeholder="Phone" required />
+							</div>
+							<div class="form-group">
+								<input id="login_input_password_new" type="password" name="user_password_new" class="form-control input-lg login_input" placeholder="Password (min. 6 characters!)" pattern=".{6,}" required autocomplete="off" />
+							</div>
+							<div class="form-group">
+								<input id="login_input_password_repeat" type="password" name="user_password_repeat" class="form-control input-lg login_input" placeholder="Repeat Password" pattern=".{6,}" required autocomplete="off" />
+							</div>
+							<div class="form-group">
+								<!-- show the captcha by calling the login/showCaptcha-method in the src attribute of the img tag -->
+								<!-- to avoid weird with-slash-without-slash issues: simply always use the URL constant here -->
+								<img id="captcha" src="<?php echo URL; ?>login/showCaptcha" />
+								<span style="display: block; font-size: 11px; color: #999; margin-bottom: 10px">
+									<!-- quick & dirty captcha reloader -->
+									<a href="#" onclick="document.getElementById('captcha').src = '<?php echo URL; ?>login/showCaptcha?' + Math.random(); return false">[ Reload Captcha ]</a>
+								</span>
+								<input type="text" name="captcha" class="form-control input-lg login_input" placeholder="Please enter these characters" required />
+							</div>
+							<div class="form-group">
+								<input type="submit" name="register" value="Register" class="btn btn-primary btn-lg btn-block" />
+								<span class="pull-right"><a href="<?php echo URL; ?>login/index">Already have an account?</a></span>
+								<span><a href="<?php echo URL; ?>index/index">Back To Home </a></span> | <span><a href="#">Need help?</a></span>
+							</div>
+						</form>
+						
+						<?php if (FACEBOOK_LOGIN == true) { ?>
+							<div class="register-facebook-box">
+								<h1>or</h1>
+								<a href="<?php echo $this->facebook_register_url; ?>" class="facebook-login-button">Register with Facebook</a>
+							</div>
+						<?php } ?>
+					</div>
+					<div class="modal-footer">
+						<div class="col-md-12">
+							<button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+						</div>	
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- script references -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		<script src="<?php echo URL; ?>public/js/bootstrap/bootstrap.min.js"></script>
+	</body>
+</html>

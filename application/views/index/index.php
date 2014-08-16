@@ -2,7 +2,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6">
-					<h1>Smart Store Online Invenotry Management System</h1>
+					<h1>Smart Store Online Inventory Management System</h1>
 					<form class="form-inline" role="form">
 					  <div class="form-group">
 					    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter your email address">

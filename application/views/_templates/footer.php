@@ -13,7 +13,7 @@
 			<div class="col-lg-3"></div>
 		</div><!-- /row -->
 		<hr>
-		<p class="centered">Developed by Marabele Enterprise Ltd (Pty)</p>
+		<p class="centered">Developed by Marabele Enterprise (Pty) Ltd</p>
 		<!-- echo out the content of the SESSION via KINT, a Composer-loaded much better version of var_dump -->
 		<!-- KINT can be used with the simple function d() -->
 		<?php d($_SESSION); ?>

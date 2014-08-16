@@ -29,7 +29,7 @@ class Login extends Controller
         }
 
         // show the view
-        $this->view->render('login/index');
+        $this->view->render('login/index', true);
     }
 
     /**
@@ -227,7 +227,7 @@ class Login extends Controller
             $this->view->facebook_register_url = $login_model->getFacebookRegisterUrl();
         }
 
-        $this->view->render('login/register');
+        $this->view->render('login/register', true);
     }
 
     /**
