@@ -4,20 +4,25 @@
 				<div class="col-lg-6">
 					<h1>Smart Store Online Inventory Management System</h1>
 					<form class="form-inline" role="form">
-					  <div class="form-group">
-					    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter your email address">
-					  </div>
-					  <button type="submit" class="btn btn-warning btn-lg">Invite Me!</button>
-					</form>					
+						<div class="form-group">
+						<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter your email address">
+						</div>
+						<button type="submit" class="btn btn-warning btn-lg">Invite Me!</button>
+					</form>
+					<a href="stock.php"><h3>___________________</h3><br/>
+						<h1>Stock Intake</h1><br/>
+						<h3>____________________</h3>
+					</a>
+					<a href="./report.php"><h1>Reports & Analysis</h1>
+						<h3>___________________</h3><br/>
+					</a>		
 				</div><!-- /col-lg-6 -->
 				<div class="col-lg-6">
-					<img class="img-responsive" src="<?php echo URL; ?>public/img/ipad-hand.png" alt="">
+					<img class="img-responsive" src="<?php echo URL; ?>public/img/ipad-hand2.png" alt="">
 				</div><!-- /col-lg-6 -->
-				
 			</div><!-- /row -->
 		</div><!-- /container -->
 	</div><!-- /headerwrap -->
-	
 	
 	<div class="container">
 		<div class="row mt centered">

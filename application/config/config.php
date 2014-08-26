@@ -20,8 +20,8 @@ ini_set("display_errors", 1);
  * if you are using a (different) port, then put this in here, like http://mydomain:8888/subfolder/
  * Note: The trailing slash is important!
  */
-define('URL', 'http://localhost/projects/BlueberryBee-SmartStore/');
-
+define('URL', 'http://localhost:81/projects/BlueberryBee-SmartStore/');
+define('UPLOAD_URL', '/projects/BlueberryBee-SmartStore/public/uploads/');
 /**
  * Configuration for: Folders
  * Here you define where your folders are. Unless you have renamed them, there's no need to change this.
@@ -70,9 +70,9 @@ define('AVATAR_DEFAULT_IMAGE', 'default.jpg');
  */
 // 1209600 seconds = 2 weeks
 define('COOKIE_RUNTIME', 1209600);
-// the domain where the cookie is valid for, for local development ".127.0.0.1" and ".localhost" will work
+// the domain where the cookie is valid for, for local development ".127.0.0.1" and ".localhost:81" will work
 // IMPORTANT: always put a dot in front of the domain, like ".mydomain.com" !
-define('COOKIE_DOMAIN', '.localhost');
+define('COOKIE_DOMAIN', '.localhost:81');
 
 /**
  * Configuration for: Database
@@ -80,7 +80,7 @@ define('COOKIE_DOMAIN', '.localhost');
  *
  * database type
  * define('DB_TYPE', 'mysql');
- * database host, usually it's "127.0.0.1" or "localhost", some servers also need port info, like "127.0.0.1:8080"
+ * database host, usually it's "127.0.0.1" or "localhost:81", some servers also need port info, like "127.0.0.1:8080"
  * define('DB_HOST', '127.0.0.1');
  * name of the database. please note: database and database table are not the same thing!
  * define('DB_NAME', 'login');
@@ -92,7 +92,7 @@ define('COOKIE_DOMAIN', '.localhost');
  */
 define('DB_TYPE', 'mysql');
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'spaza');
+define('DB_NAME', 'spazadb');
 define('DB_USER', 'root');
 define('DB_PASS', '');
 
@@ -155,9 +155,9 @@ define("EMAIL_SMTP_HOST", 'smtp.gmail.com');
 // leave this true until your SMTP can be used without login
 define("EMAIL_SMTP_AUTH", true);
 // SMTP provider username
-define("EMAIL_SMTP_USERNAME", 'u11210754@tuks.co.za');
+define("EMAIL_SMTP_USERNAME", 'marabele.ptyltd@gmail.com');
 // SMTP provider password
-define("EMAIL_SMTP_PASSWORD", 'Tharollo5');
+define("EMAIL_SMTP_PASSWORD", 'NtsabaKwasi');
 // SMTP provider port
 define("EMAIL_SMTP_PORT", 587);
 // SMTP encryption, usually SMTP providers use "tls" or "ssl", for details see the PHPMailer manual

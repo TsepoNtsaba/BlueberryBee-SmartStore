@@ -25,4 +25,33 @@ class Dashboard extends Controller
     {
         $this->view->render('dashboard/index');
     }
+    
+    /**
+     * This method controls what happens when you move to /dashboard/index in your app.
+     */
+    function stock()
+    {
+        $this->view->render('dashboard/stock');
+    }
+    /**
+     * This method controls what happens when you move to /dashboard/index in your app.
+     */
+    function add_stock()
+    {
+        $this->view->render('dashboard/add_stock');
+    }      
+    /**
+     * This method controls what happens when you move to /dashboard/index in your app.
+     */
+    function add_product()
+    {
+        $this->view->render('dashboard/add_product');
+    }   
+    /**
+     * This method controls what happens when you move to /dashboard/index in your app.
+     */
+    function report()
+    {
+        $this->view->render('dashboard/report');
+    }       
 }
